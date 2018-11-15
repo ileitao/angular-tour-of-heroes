@@ -1,17 +1,5 @@
 <h2>My Heroes</h2>
-<!-- if selectedHero != undefined -->
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div>
-  	<span>id: </span>{{selectedHero.id}}
-  </div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" 
-      			 placeholder="name">
-    </label>
-  </div>
-</div>
+
 <ul class="heroes">
 	<!-- for every hero in heroes -->
   <li *ngFor="let hero of heroes" 
@@ -20,3 +8,7 @@
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
+
+<!-- hero-detail component -->
+<!-- heroes component's selectedHero bind to hero-detail's hero -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
